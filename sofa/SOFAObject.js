@@ -32,3 +32,5 @@ class SOFAObject {
     return "";
   }
 }
+
+module.exports = SOFAObject;
