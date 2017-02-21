@@ -1,0 +1,16 @@
+{
+  "name": "sofa-js",
+  "version": "0.1.0",
+  "description": "Helpers for working with SOFA messages in Javascript",
+  "main": "sofa/SOFA.js",
+  "repository": {},
+  "author": "SOFA",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "git -C vendor/sofa-spec pull || git clone --depth 1 git@github.com:sofaprotocol/sofa-spec.git vendor/sofa-spec"
+  },
+  "dependencies": {
+    "ajv": "^4.11.3",
+    "glob": "^7.1.1"
+  }
+}
