@@ -7,7 +7,7 @@
   "author": "SOFA",
   "license": "MIT",
   "scripts": {
-    "preinstall": "git -C vendor/sofa-spec pull || git clone --depth 1 git@github.com:sofaprotocol/sofa-spec.git vendor/sofa-spec"
+    "preinstall": "git -C vendor/sofa-spec pull || git clone --depth 1 https://github.com/sofaprotocol/sofa-spec.git vendor/sofa-spec"
   },
   "dependencies": {
     "ajv": "^4.11.3",
