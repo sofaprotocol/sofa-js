@@ -3,6 +3,11 @@ const fs = require('fs');
 const glob = require("glob");
 const SOFAObject = require("./SOFAObject.js");
 
+const extendedTypes = {
+  "Message": require("./types/Message.js"),
+  "Command": require("./types/Command.js")
+};
+
 class SOFA  {
   constructor() {
     this.schemas = {};
@@ -17,9 +22,10 @@ class SOFA  {
 
   addSchema(name, schema) {
     this.schemas[name] = schema;
+    let cls = extendedTypes[name] || SOFAObject;
     this[name] = function(content) {
       if (content) {
-        return new SOFAObject(name, schema, content);
+        return new cls(name, schema, content);
       } else {
         return "SOFA::"+name+":";
       }

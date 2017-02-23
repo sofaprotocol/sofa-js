@@ -29,7 +29,7 @@ class SOFAObject {
   }
 
   get display() {
-    return "";
+    return this.string;
   }
 }
 
