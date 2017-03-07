@@ -7,10 +7,18 @@
   "author": "SOFA",
   "license": "MIT",
   "scripts": {
+    "test": "mocha test/**/*.spec.js",
     "preinstall": "git -C vendor/sofa-spec pull || git clone --depth 1 https://github.com/sofaprotocol/sofa-spec.git vendor/sofa-spec"
   },
   "dependencies": {
     "ajv": "^4.11.3",
-    "glob": "^7.1.1"
+    "ethjs-unit": "^0.1.6",
+    "glob": "^7.1.1",
+    "number-to-bn": "^1.7.0"
+  },
+  "devDependencies": {
+    "bn": "^1.0.1",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   }
 }
