@@ -2,10 +2,13 @@ const path = require('path');
 const fs = require('fs');
 const glob = require("glob");
 const SOFAObject = require("./SOFAObject.js");
+const unit = require('ethjs-unit');
 
 const extendedTypes = {
   "Message": require("./types/Message.js"),
-  "Command": require("./types/Command.js")
+  "Command": require("./types/Command.js"),
+  "Payment": require("./types/Payment.js"),
+  "PaymentRequest": require("./types/PaymentRequest.js")
 };
 
 class SOFA  {
