@@ -40,5 +40,9 @@ describe('SOFA', () => {
       assert.equal(JSON.parse(vp.json).value, '0xf4240')
     })
 
+    it('should have a value getter denominated in ETH', () => {
+      assert.equal(vp.ethValue, 0.000000000001)
+    })
+
   })
 })
