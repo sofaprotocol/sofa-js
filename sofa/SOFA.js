@@ -38,8 +38,13 @@ class SOFA  {
   parse(s) {
     let sofaRx = new RegExp(/^\s*SOFA::(\w+):({.+})/g);
     let match = sofaRx.exec(s);
+    if (!match || !match[1] || !match[2]) { return null }
     let name = match[1];
     let content = JSON.parse(match[2]);
+    if (!this[name]) {
+      console.log(name + ' is not a valid SOFA type');
+      return null;
+    }
     return this[name](content);
   }
 }

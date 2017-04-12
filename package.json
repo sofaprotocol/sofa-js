@@ -1,6 +1,6 @@
 {
   "name": "sofa-js",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Helpers for working with SOFA messages in Javascript",
   "main": "sofa/SOFA.js",
   "repository": {},

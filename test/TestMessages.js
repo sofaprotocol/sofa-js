@@ -1,6 +1,8 @@
 const numberToBN = require('number-to-bn')
 
 module.exports = {
+  INVALID_TYPE: 'SOFA::BadType:{"body": "Hello"}',
+  EMPTY_MESSAGE: 'SOFA::Message:{}',
   VALID_PAYMENT_REQUEST: {
     value: "0xf4240",
     destinationAddress: "0xcd111aa492a9c77a367c36e6d6af8e6f212e0c8e"

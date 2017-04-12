@@ -7,6 +7,18 @@ const numberToBN = require('number-to-bn')
 const SOFA = require('../sofa/SOFA')
 
 describe('SOFA', () => {
+  describe('#parse(s)', () => {
+    let result = SOFA.parse(TestMessages.EMPTY_MESSAGE);
+    it('should return null for invalid sofa structure', () => {
+      assert.equal(result, null)
+    })
+
+    result = SOFA.parse(TestMessages.INVALID_TYPE);
+    it('should return null for unknown message type', () => {
+      assert.equal(result, null)
+    })
+  })
+
   describe('#Payment()', () => {
     let np = SOFA.Payment(TestMessages.NUMERIC_PAYMENT);
     let nsp = SOFA.Payment(TestMessages.NUMERIC_STRING_PAYMENT);
