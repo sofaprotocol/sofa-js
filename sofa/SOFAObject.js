@@ -10,10 +10,13 @@ class SOFAObject {
       if (!this.hasOwnProperty(k)) { this[k] = v; }
     }
 
-    let ajv = new Ajv();
-    this.validate = ajv.compile(schema);
-    var valid = this.validate(content);
-    if (!valid) console.log(ajv.errorsText());
+    let ajv = new Ajv({allErrors: true});
+    let validate = ajv.compile(schema);
+    this._valid = validate(content);
+    if (!this._valid) {
+      // map error messages to errors property
+      this._errors = validate.errors.map((e) => e.message);
+    }
   }
 
   preprocess(content) {
@@ -38,6 +41,14 @@ class SOFAObject {
 
   get display() {
     return this.string;
+  }
+
+  get isValid() {
+    return this._valid;
+  }
+
+  get validationErrors() {
+    return this._errors;
   }
 }
 

@@ -42,8 +42,7 @@ class SOFA  {
     let name = match[1];
     let content = JSON.parse(match[2]);
     if (!this[name]) {
-      console.log(name + ' is not a valid SOFA type');
-      return null;
+      throw new Error(name + ' is not a valid SOFA type');
     }
     return this[name](content);
   }
