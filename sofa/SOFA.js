@@ -36,8 +36,9 @@ class SOFA  {
   }
 
   parse(s) {
-    let sofaRx = new RegExp(/^\s*SOFA::(\w+):({.+})/g);
-    let match = sofaRx.exec(s);
+    let s_esc = s.replace(/\n/g, '\\n');
+    let sofaRx = new RegExp(/^\s*SOFA::(\w+):({.+})$/);
+    let match = sofaRx.exec(s_esc);
     if (!match || !match[1] || !match[2]) { return null }
     let name = match[1];
     let content = JSON.parse(match[2]);

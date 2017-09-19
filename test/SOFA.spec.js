@@ -8,14 +8,24 @@ const SOFA = require('../sofa/SOFA')
 
 describe('SOFA', () => {
   describe('#parse(s)', () => {
-    let result = SOFA.parse(TestMessages.EMPTY_MESSAGE);
     it('should return null for invalid sofa structure', () => {
+      let result = SOFA.parse(TestMessages.EMPTY_MESSAGE);
       assert.equal(result, null)
     })
 
-    result = SOFA.parse(TestMessages.INVALID_TYPE);
-    it('should return null for unknown message type', () => {
+    it('should return exception for unknown message type', () => {
+      let result;
+      try {
+        result = SOFA.parse(TestMessages.INVALID_TYPE);
+      } catch (e) {
+        result = null
+      }
       assert.equal(result, null)
+    })
+
+    it('should not be null', () => {
+      let result = SOFA.parse(TestMessages.VALID_COMPLEX);
+      assert.isTrue(result != null)
     })
   })
 
