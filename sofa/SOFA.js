@@ -36,7 +36,7 @@ class SOFA  {
   }
 
   parse(s) {
-    let s_esc = s.replace(/\n/g, '\\n');
+    let s_esc = s.replace(/\n|\r\n|\u2028|\u2029/g, '\\n');
     let sofaRx = new RegExp(/^\s*SOFA::(\w+):({.+})$/);
     let match = sofaRx.exec(s_esc);
     if (!match || !match[1] || !match[2]) { return null }

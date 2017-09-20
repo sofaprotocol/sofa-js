@@ -23,9 +23,15 @@ describe('SOFA', () => {
       assert.equal(result, null)
     })
 
-    it('should not be null', () => {
+    it('should process messages with line breaks', () => {
       let result = SOFA.parse(TestMessages.VALID_COMPLEX);
       assert.isTrue(result != null)
+    })
+
+    it('should process messages with unicode line breaks', () => {
+      let result = SOFA.parse(TestMessages.VALID_COMPLEX_2);
+      assert.isTrue(result != null)
+      assert.equal(result.body, "hello\nworld")
     })
   })
 
